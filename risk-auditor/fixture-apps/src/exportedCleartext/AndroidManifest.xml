@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  INERT FIXTURE: exportedCleartext
+  Declares permissions and components only. Every component is an empty no-op.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application android:usesCleartextTraffic="true">
+        <!-- Deliberately exported with no permission guard, so the static
+             manifest check has something real to find. Backs no data. -->
+        <provider
+            android:name=".FixtureExportedProvider"
+            android:authorities="com.riskauditor.fixtures.exportedcleartext.provider"
+            android:exported="true" />
+    </application>
+</manifest>

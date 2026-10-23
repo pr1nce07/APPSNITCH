@@ -1,0 +1,209 @@
+{
+  "version": 1,
+  "note": "SINGLE SOURCE OF TRUTH for the scoring model. Both the risk engine and tools/render_rubric.py read this file, so the one-page rubric deliverable cannot drift from the code. Numbers, band floors and user-facing text live here; the predicate for each combination rule lives in CombinationRules.kt and is joined by id.",
+
+  "bands": {
+    "medium_from": 30,
+    "high_from": 60,
+    "critical_from": 80
+  },
+
+  "category_weights": {
+    "special_access": { "base": 30.0, "cap": 60.0, "diminishing": 0.6 },
+    "sms": { "base": 26.0, "cap": 30.0, "diminishing": 0.5 },
+    "contacts_and_call_logs": { "base": 16.0, "cap": 20.0, "diminishing": 0.5 },
+    "camera_and_microphone": { "base": 18.0, "cap": 22.0, "diminishing": 0.5 },
+    "location": { "base": 14.0, "cap": 18.0, "diminishing": 0.5 },
+    "phone_and_identity": { "base": 11.0, "cap": 14.0, "diminishing": 0.5 },
+    "storage_and_media": { "base": 12.0, "cap": 15.0, "diminishing": 0.5 },
+    "background_and_persistence": { "base": 7.0, "cap": 9.0, "diminishing": 0.4 },
+    "network": { "base": 8.0, "cap": 5.0, "diminishing": 0.4 },
+    "accounts_calendar_sensors_nearby": { "base": 9.0, "cap": 12.0, "diminishing": 0.5 },
+    "uncategorized": { "base": 0.0, "cap": 0.0, "diminishing": 0.0 }
+  },
+
+  "protection_multipliers": {
+    "dangerous": 1.0,
+    "special": 1.0,
+    "signature": 0.8,
+    "normal": 0.6,
+    "unknown": 0.0
+  },
+
+  "state_multipliers": {
+    "granted": 1.0,
+    "declared_not_granted": 0.3,
+    "not_grantable": 0.0
+  },
+
+  "special_access_weights": {
+    "accessibility": { "enabled": 30.0, "declared_only": 12.0 },
+    "device_admin": { "enabled": 28.0, "declared_only": 10.0 },
+    "notification_listener": { "enabled": 26.0, "declared_only": 10.0 },
+    "overlay": { "enabled": 25.0, "declared_only": 9.0 },
+    "install_packages": { "enabled": 22.0, "declared_only": 8.0 },
+    "all_files_access": { "enabled": 22.0, "declared_only": 8.0 },
+    "vpn_service": { "enabled": 20.0, "declared_only": 7.0 },
+    "usage_stats": { "enabled": 16.0, "declared_only": 6.0 },
+    "battery_optimization_exempt": { "enabled": 6.0, "declared_only": 2.0 }
+  },
+
+  "caps": {
+    "permission_subtotal": 45.0,
+    "special_access_subtotal": 60.0,
+    "network_category": 5.0
+  },
+
+  "provenance": {
+    "sideloaded": 10,
+    "adb_or_none": 8,
+    "unknown_installer": 6,
+    "google_play": -5,
+    "oem_store": -3,
+    "target_sdk_below_23": 10,
+    "no_launcher_icon": 8,
+    "installed_within_hours": 3,
+    "recent_install_window_hours": 48
+  },
+
+  "reducers": {
+    "verified_security_tool_device_admin": 0.2,
+    "verified_accessibility_tool": 0.2,
+    "role_holder_category": 0.25,
+    "system_app_dampening": 0.55
+  },
+
+  "manifest": {
+    "debuggable": 8,
+    "cleartext_traffic": 4,
+    "test_only": 6,
+    "unguarded_exported_provider": 6,
+    "unguarded_exported_component": 2,
+    "max_unguarded_component_points": 10
+  },
+
+  "threat_intel": {
+    "malicious": 40,
+    "suspicious": 15,
+    "malicious_band_floor": "critical"
+  },
+
+  "context_mismatch_bonus": {
+    "critical": 20,
+    "high": 14,
+    "medium": 8,
+    "low": 4,
+    "info": 0
+  },
+
+  "context_mismatch_band_floor": {
+    "critical": "critical",
+    "high": "high",
+    "medium": null,
+    "low": null,
+    "info": null
+  },
+
+  "minimum_reasons_for_high_or_critical": 3,
+
+  "combination_rules": {
+    "COMBO_ACCESSIBILITY_OVERLAY": {
+      "bonus": 25,
+      "band_floor": "critical",
+      "severity": "critical",
+      "headline": "This app can both read your screen and draw over it",
+      "detail": "Together these two abilities let an app watch you type into your real banking app and show a fake window on top of it. This is the exact pair banking trojans use."
+    },
+    "COMBO_SMS_INTERNET_BOOT_SIDELOADED": {
+      "bonus": 20,
+      "band_floor": "high",
+      "severity": "critical",
+      "headline": "It can read your texts, send them online, and restarts itself",
+      "detail": "This app did not come from an app store, can read your text messages, can reach the internet, and starts itself when your phone turns on. That is everything needed to quietly forward your login codes."
+    },
+    "COMBO_DEVICE_ADMIN_NOT_SECURITY": {
+      "bonus": 15,
+      "band_floor": "high",
+      "severity": "high",
+      "headline": "It has administrator control but is not a security app",
+      "detail": "Administrator control is meant for security and work-device apps. An ordinary app holding it can stop you from uninstalling it. If this is your employer's device management app, this is expected."
+    },
+    "COMBO_NOTIFICATION_LISTENER_INTERNET_SMS": {
+      "bonus": 18,
+      "band_floor": "high",
+      "severity": "critical",
+      "headline": "It can read your notifications and your texts, and send them online",
+      "detail": "One-time codes arrive in both places. An app that can read both and reach the internet can collect them without ever opening a screen you would notice."
+    },
+    "COMBO_NOTIFICATION_LISTENER_INTERNET": {
+      "bonus": 12,
+      "band_floor": null,
+      "severity": "high",
+      "headline": "It can read every notification and send data online",
+      "detail": "Notifications often contain login codes and private message previews. This app can read all of them and has a way to send them elsewhere."
+    },
+    "COMBO_OVERLAY_USAGE_STATS": {
+      "bonus": 12,
+      "band_floor": null,
+      "severity": "high",
+      "headline": "It knows which app you open and can draw over it",
+      "detail": "Knowing the moment you open your bank, plus the ability to cover the screen, is how a convincing fake login page is timed."
+    },
+    "COMBO_INSTALL_PACKAGES_SIDELOADED_INTERNET": {
+      "bonus": 18,
+      "band_floor": "high",
+      "severity": "high",
+      "headline": "It can download and install more apps, and did not come from a store",
+      "detail": "An app from outside a store that can fetch and install further apps can add new software to your phone after you installed it, which is how droppers work."
+    },
+    "COMBO_ACCESSIBILITY_INSTALL_PACKAGES": {
+      "bonus": 20,
+      "band_floor": "high",
+      "severity": "critical",
+      "headline": "It can tap buttons for you and install other apps",
+      "detail": "Reading the screen and tapping on your behalf means it can accept an install prompt itself, without you agreeing to anything."
+    },
+    "COMBO_ACCESSIBILITY_SMS": {
+      "bonus": 15,
+      "band_floor": "high",
+      "severity": "critical",
+      "headline": "It can read your screen and your text messages",
+      "detail": "Between what is on screen and what arrives by text, this covers both places a login code can appear."
+    },
+    "COMBO_CAMERA_MIC_INTERNET_BOOT_HIDDEN": {
+      "bonus": 22,
+      "band_floor": "high",
+      "severity": "critical",
+      "headline": "It can record you, send it online, restarts itself, and has no icon",
+      "detail": "An app with no icon in your app list that can use the camera and microphone, reach the internet and start itself on boot matches the pattern of covert monitoring software."
+    },
+    "COMBO_BACKGROUND_LOCATION_BOOT_HIDDEN": {
+      "bonus": 20,
+      "band_floor": "high",
+      "severity": "critical",
+      "headline": "It tracks your location in the background and has no icon",
+      "detail": "This app does not appear in your app list, can follow your location when you are not using it, and starts itself when the phone turns on."
+    },
+    "COMBO_CONTACTS_CALLLOG_SMS_INTERNET": {
+      "bonus": 15,
+      "band_floor": null,
+      "severity": "high",
+      "headline": "It can copy your contacts, call history and texts online",
+      "detail": "Taken together this is enough to rebuild who you know and how you talk to them, which is what scam and extortion operations want."
+    },
+    "COMBO_ALL_FILES_INTERNET_SIDELOADED": {
+      "bonus": 15,
+      "band_floor": "high",
+      "severity": "high",
+      "headline": "It can read every file on your phone and did not come from a store",
+      "detail": "Full file access plus an internet connection, from an app with no store review, means your documents and photos could be copied elsewhere."
+    },
+    "COMBO_VPN_INTERNET_SIDELOADED": {
+      "bonus": 16,
+      "band_floor": "high",
+      "severity": "high",
+      "headline": "All of your internet traffic can be routed through this app",
+      "detail": "A VPN app sees everything your phone sends and receives. This one did not come from an app store, so nothing has reviewed what it does with that."
+    }
+  }
+}

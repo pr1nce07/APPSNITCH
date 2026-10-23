@@ -1,0 +1,658 @@
+{
+  "version": 1,
+  "source_note": "Categories 01-09 are mandated by PS-01 section 2. Category 'accounts_calendar_sensors_nearby' is an addition so that genuinely sensitive access does not fall into 'uncategorized'. Protection levels are AOSP defaults and are treated as a FALLBACK ONLY: the level read from the device at scan time always wins. Sensitivity is this project's own 0.0-1.0 judgement of how much damage one permission enables, not an Android concept.",
+  "entries": [
+    {
+      "permission": "android.permission.BIND_ACCESSIBILITY_SERVICE",
+      "category": "special_access",
+      "protection": "signature",
+      "sensitivity": 1.0,
+      "special": true,
+      "min_api": 16,
+      "plain_text": "Lets the app read everything shown on your screen in any app, and tap and type for you."
+    },
+    {
+      "permission": "android.permission.SYSTEM_ALERT_WINDOW",
+      "category": "special_access",
+      "protection": "special",
+      "sensitivity": 0.9,
+      "special": true,
+      "plain_text": "Lets the app draw on top of other apps, so it can cover a real screen with one of its own."
+    },
+    {
+      "permission": "android.permission.BIND_DEVICE_ADMIN",
+      "category": "special_access",
+      "protection": "signature",
+      "sensitivity": 0.95,
+      "special": true,
+      "plain_text": "Lets the app control phone-wide security settings and block you from removing it."
+    },
+    {
+      "permission": "android.permission.BIND_NOTIFICATION_LISTENER_SERVICE",
+      "category": "special_access",
+      "protection": "signature",
+      "sensitivity": 0.9,
+      "special": true,
+      "min_api": 18,
+      "plain_text": "Lets the app read every notification you get, including one-time codes sent by your bank."
+    },
+    {
+      "permission": "android.permission.REQUEST_INSTALL_PACKAGES",
+      "category": "special_access",
+      "protection": "special",
+      "sensitivity": 0.85,
+      "special": true,
+      "min_api": 23,
+      "plain_text": "Lets the app install other apps on your phone."
+    },
+    {
+      "permission": "android.permission.PACKAGE_USAGE_STATS",
+      "category": "special_access",
+      "protection": "special",
+      "sensitivity": 0.7,
+      "special": true,
+      "min_api": 21,
+      "plain_text": "Lets the app see which apps you open and for how long."
+    },
+    {
+      "permission": "android.permission.BIND_VPN_SERVICE",
+      "category": "special_access",
+      "protection": "signature",
+      "sensitivity": 0.85,
+      "special": true,
+      "min_api": 14,
+      "plain_text": "Lets the app route all of your phone's internet traffic through itself."
+    },
+    {
+      "permission": "android.permission.QUERY_ALL_PACKAGES",
+      "category": "special_access",
+      "protection": "normal",
+      "sensitivity": 0.35,
+      "special": true,
+      "min_api": 30,
+      "plain_text": "Lets the app see the full list of apps you have installed."
+    },
+    {
+      "permission": "android.permission.READ_SMS",
+      "category": "sms",
+      "protection": "dangerous",
+      "sensitivity": 1.0,
+      "plain_text": "Lets the app read your text messages, including one-time login codes."
+    },
+    {
+      "permission": "android.permission.RECEIVE_SMS",
+      "category": "sms",
+      "protection": "dangerous",
+      "sensitivity": 0.95,
+      "plain_text": "Lets the app see every text message as it arrives, before you do."
+    },
+    {
+      "permission": "android.permission.SEND_SMS",
+      "category": "sms",
+      "protection": "dangerous",
+      "sensitivity": 0.85,
+      "plain_text": "Lets the app send text messages, which can cost you money."
+    },
+    {
+      "permission": "android.permission.RECEIVE_MMS",
+      "category": "sms",
+      "protection": "dangerous",
+      "sensitivity": 0.8,
+      "plain_text": "Lets the app see picture messages as they arrive."
+    },
+    {
+      "permission": "android.permission.RECEIVE_WAP_PUSH",
+      "category": "sms",
+      "protection": "dangerous",
+      "sensitivity": 0.75,
+      "plain_text": "Lets the app receive a special kind of silent message that apps can act on without telling you."
+    },
+    {
+      "permission": "android.permission.READ_CELL_BROADCASTS",
+      "category": "sms",
+      "protection": "dangerous",
+      "sensitivity": 0.4,
+      "plain_text": "Lets the app read emergency and network broadcast messages."
+    },
+
+    {
+      "permission": "android.permission.READ_CONTACTS",
+      "category": "contacts_and_call_logs",
+      "protection": "dangerous",
+      "sensitivity": 0.85,
+      "plain_text": "Lets the app read everyone in your address book."
+    },
+    {
+      "permission": "android.permission.WRITE_CONTACTS",
+      "category": "contacts_and_call_logs",
+      "protection": "dangerous",
+      "sensitivity": 0.6,
+      "plain_text": "Lets the app add, change or delete people in your address book."
+    },
+    {
+      "permission": "android.permission.READ_CALL_LOG",
+      "category": "contacts_and_call_logs",
+      "protection": "dangerous",
+      "sensitivity": 0.9,
+      "min_api": 16,
+      "plain_text": "Lets the app see who you have called and who has called you."
+    },
+    {
+      "permission": "android.permission.WRITE_CALL_LOG",
+      "category": "contacts_and_call_logs",
+      "protection": "dangerous",
+      "sensitivity": 0.6,
+      "min_api": 16,
+      "plain_text": "Lets the app change or erase your call history."
+    },
+    {
+      "permission": "android.permission.PROCESS_OUTGOING_CALLS",
+      "category": "contacts_and_call_logs",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "max_api": 28,
+      "plain_text": "Lets the app see the number you are dialling and redirect the call."
+    },
+    {
+      "permission": "android.permission.GET_ACCOUNTS",
+      "category": "contacts_and_call_logs",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "plain_text": "Lets the app see the accounts you are signed in to on this phone."
+    },
+
+    {
+      "permission": "android.permission.CAMERA",
+      "category": "camera_and_microphone",
+      "protection": "dangerous",
+      "sensitivity": 1.0,
+      "plain_text": "Lets the app take photos and record video."
+    },
+    {
+      "permission": "android.permission.RECORD_AUDIO",
+      "category": "camera_and_microphone",
+      "protection": "dangerous",
+      "sensitivity": 1.0,
+      "plain_text": "Lets the app record sound through your microphone."
+    },
+    {
+      "permission": "android.permission.CAPTURE_AUDIO_OUTPUT",
+      "category": "camera_and_microphone",
+      "protection": "signature",
+      "sensitivity": 0.9,
+      "plain_text": "Lets the app record the sound your phone is playing."
+    },
+
+    {
+      "permission": "android.permission.ACCESS_FINE_LOCATION",
+      "category": "location",
+      "protection": "dangerous",
+      "sensitivity": 0.9,
+      "plain_text": "Lets the app see exactly where you are."
+    },
+    {
+      "permission": "android.permission.ACCESS_COARSE_LOCATION",
+      "category": "location",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "plain_text": "Lets the app see roughly which area you are in."
+    },
+    {
+      "permission": "android.permission.ACCESS_BACKGROUND_LOCATION",
+      "category": "location",
+      "protection": "dangerous",
+      "sensitivity": 1.0,
+      "min_api": 29,
+      "plain_text": "Lets the app keep tracking where you are even when you are not using it."
+    },
+    {
+      "permission": "android.permission.ACCESS_MEDIA_LOCATION",
+      "category": "location",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "min_api": 29,
+      "plain_text": "Lets the app read the place each of your photos was taken."
+    },
+
+    {
+      "permission": "android.permission.READ_PHONE_STATE",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "plain_text": "Lets the app read details that identify your phone and see when you are on a call."
+    },
+    {
+      "permission": "android.permission.READ_PHONE_NUMBERS",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.6,
+      "min_api": 26,
+      "plain_text": "Lets the app read your own phone number."
+    },
+    {
+      "permission": "android.permission.READ_BASIC_PHONE_STATE",
+      "category": "phone_and_identity",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "min_api": 33,
+      "plain_text": "Lets the app read basic information about your mobile network."
+    },
+    {
+      "permission": "android.permission.CALL_PHONE",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.8,
+      "plain_text": "Lets the app place phone calls without asking you first."
+    },
+    {
+      "permission": "android.permission.ANSWER_PHONE_CALLS",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.8,
+      "min_api": 26,
+      "plain_text": "Lets the app answer incoming calls for you."
+    },
+    {
+      "permission": "android.permission.ADD_VOICEMAIL",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "plain_text": "Lets the app add messages to your voicemail inbox."
+    },
+    {
+      "permission": "android.permission.USE_SIP",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.4,
+      "plain_text": "Lets the app make and receive internet calls."
+    },
+    {
+      "permission": "android.permission.ACCEPT_HANDOVER",
+      "category": "phone_and_identity",
+      "protection": "dangerous",
+      "sensitivity": 0.4,
+      "min_api": 28,
+      "plain_text": "Lets the app take over a call that started in another app."
+    },
+    {
+      "permission": "android.permission.MANAGE_OWN_CALLS",
+      "category": "phone_and_identity",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "min_api": 26,
+      "plain_text": "Lets the app handle its own internet calls through your phone's dialler."
+    },
+
+    {
+      "permission": "android.permission.MANAGE_EXTERNAL_STORAGE",
+      "category": "storage_and_media",
+      "protection": "special",
+      "sensitivity": 1.0,
+      "special": true,
+      "min_api": 30,
+      "plain_text": "Lets the app open, change and delete every file on your phone's storage."
+    },
+    {
+      "permission": "android.permission.READ_EXTERNAL_STORAGE",
+      "category": "storage_and_media",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "max_api": 32,
+      "plain_text": "Lets the app read files you have saved, such as documents and downloads."
+    },
+    {
+      "permission": "android.permission.WRITE_EXTERNAL_STORAGE",
+      "category": "storage_and_media",
+      "protection": "dangerous",
+      "sensitivity": 0.75,
+      "max_api": 29,
+      "plain_text": "Lets the app change or delete files you have saved."
+    },
+    {
+      "permission": "android.permission.READ_MEDIA_IMAGES",
+      "category": "storage_and_media",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "min_api": 33,
+      "plain_text": "Lets the app look at all of your photos."
+    },
+    {
+      "permission": "android.permission.READ_MEDIA_VIDEO",
+      "category": "storage_and_media",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "min_api": 33,
+      "plain_text": "Lets the app watch all of your videos."
+    },
+    {
+      "permission": "android.permission.READ_MEDIA_AUDIO",
+      "category": "storage_and_media",
+      "protection": "dangerous",
+      "sensitivity": 0.6,
+      "min_api": 33,
+      "plain_text": "Lets the app play and copy all of your music and recordings."
+    },
+    {
+      "permission": "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+      "category": "storage_and_media",
+      "protection": "dangerous",
+      "sensitivity": 0.3,
+      "min_api": 34,
+      "plain_text": "Lets the app see only the photos and videos you pick for it."
+    },
+
+    {
+      "permission": "android.permission.RECEIVE_BOOT_COMPLETED",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.6,
+      "plain_text": "Lets the app start itself every time you switch your phone on."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.4,
+      "min_api": 28,
+      "plain_text": "Lets the app keep running in the background with a small ongoing notice."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_CAMERA",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.8,
+      "min_api": 34,
+      "plain_text": "Lets the app keep using your camera while running in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_MICROPHONE",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.8,
+      "min_api": 34,
+      "plain_text": "Lets the app keep using your microphone while running in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_LOCATION",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.7,
+      "min_api": 34,
+      "plain_text": "Lets the app keep following your location while running in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_MEDIA_PROJECTION",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.9,
+      "min_api": 34,
+      "plain_text": "Lets the app keep recording your screen while running in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_DATA_SYNC",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.4,
+      "min_api": 34,
+      "plain_text": "Lets the app keep moving data in and out while running in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "min_api": 34,
+      "plain_text": "Lets the app stay connected to a watch or other paired device in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_HEALTH",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "min_api": 34,
+      "plain_text": "Lets a fitness app keep tracking a workout in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "min_api": 34,
+      "plain_text": "Lets the app keep playing music or video in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_PHONE_CALL",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.4,
+      "min_api": 34,
+      "plain_text": "Lets the app keep a call running in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "min_api": 34,
+      "plain_text": "Lets the app keep sending and receiving messages in the background."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_SPECIAL_USE",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.5,
+      "min_api": 34,
+      "plain_text": "Lets the app keep running in the background for a reason it defines itself."
+    },
+    {
+      "permission": "android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.5,
+      "min_api": 34,
+      "plain_text": "Lets the app keep running in the background under a system exemption."
+    },
+    {
+      "permission": "android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.6,
+      "min_api": 23,
+      "plain_text": "Lets the app ask to be left running when your phone would normally pause it to save battery."
+    },
+    {
+      "permission": "android.permission.SCHEDULE_EXACT_ALARM",
+      "category": "background_and_persistence",
+      "protection": "special",
+      "sensitivity": 0.5,
+      "min_api": 31,
+      "plain_text": "Lets the app wake your phone at an exact moment it chooses."
+    },
+    {
+      "permission": "android.permission.USE_EXACT_ALARM",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.4,
+      "min_api": 33,
+      "plain_text": "Lets an alarm or calendar app wake your phone at an exact moment."
+    },
+    {
+      "permission": "android.permission.USE_FULL_SCREEN_INTENT",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.5,
+      "min_api": 29,
+      "plain_text": "Lets the app take over your whole screen with a notification, even when the phone is locked."
+    },
+    {
+      "permission": "android.permission.WAKE_LOCK",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "plain_text": "Lets the app stop your phone from going to sleep."
+    },
+    {
+      "permission": "android.permission.REQUEST_DELETE_PACKAGES",
+      "category": "background_and_persistence",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "min_api": 26,
+      "plain_text": "Lets the app ask you to remove other apps."
+    },
+
+    {
+      "permission": "android.permission.INTERNET",
+      "category": "network",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "plain_text": "Lets the app send and receive data over the internet."
+    },
+    {
+      "permission": "android.permission.ACCESS_NETWORK_STATE",
+      "category": "network",
+      "protection": "normal",
+      "sensitivity": 0.1,
+      "plain_text": "Lets the app check whether you are online."
+    },
+    {
+      "permission": "android.permission.ACCESS_WIFI_STATE",
+      "category": "network",
+      "protection": "normal",
+      "sensitivity": 0.35,
+      "plain_text": "Lets the app see details of the Wi-Fi network you are on, which can hint at where you are."
+    },
+    {
+      "permission": "android.permission.CHANGE_WIFI_STATE",
+      "category": "network",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "plain_text": "Lets the app turn Wi-Fi on and off and switch networks."
+    },
+    {
+      "permission": "android.permission.CHANGE_NETWORK_STATE",
+      "category": "network",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "plain_text": "Lets the app change how your phone connects to the internet."
+    },
+
+    {
+      "permission": "android.permission.READ_CALENDAR",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.6,
+      "plain_text": "Lets the app read your calendar, including who you are meeting and when."
+    },
+    {
+      "permission": "android.permission.WRITE_CALENDAR",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.4,
+      "plain_text": "Lets the app add or delete events in your calendar."
+    },
+    {
+      "permission": "android.permission.BODY_SENSORS",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.7,
+      "min_api": 20,
+      "plain_text": "Lets the app read health readings such as your heart rate."
+    },
+    {
+      "permission": "android.permission.BODY_SENSORS_BACKGROUND",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.8,
+      "min_api": 33,
+      "plain_text": "Lets the app keep reading your health readings even when you are not using it."
+    },
+    {
+      "permission": "android.permission.ACTIVITY_RECOGNITION",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "min_api": 29,
+      "plain_text": "Lets the app tell when you are walking, running or in a vehicle."
+    },
+    {
+      "permission": "android.permission.BLUETOOTH_SCAN",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "min_api": 31,
+      "plain_text": "Lets the app look for nearby Bluetooth devices, which can reveal where you are."
+    },
+    {
+      "permission": "android.permission.BLUETOOTH_CONNECT",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "min_api": 31,
+      "plain_text": "Lets the app connect to Bluetooth devices you have paired."
+    },
+    {
+      "permission": "android.permission.BLUETOOTH_ADVERTISE",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.3,
+      "min_api": 31,
+      "plain_text": "Lets the app make your phone visible to nearby Bluetooth devices."
+    },
+    {
+      "permission": "android.permission.BLUETOOTH",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "max_api": 30,
+      "plain_text": "Lets the app use Bluetooth on older versions of Android."
+    },
+    {
+      "permission": "android.permission.BLUETOOTH_ADMIN",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "normal",
+      "sensitivity": 0.3,
+      "max_api": 30,
+      "plain_text": "Lets the app pair with Bluetooth devices on older versions of Android."
+    },
+    {
+      "permission": "android.permission.NEARBY_WIFI_DEVICES",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.5,
+      "min_api": 33,
+      "plain_text": "Lets the app find and connect to nearby devices over Wi-Fi."
+    },
+    {
+      "permission": "android.permission.UWB_RANGING",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.3,
+      "min_api": 31,
+      "plain_text": "Lets the app measure precisely how far away a nearby device is."
+    },
+    {
+      "permission": "android.permission.POST_NOTIFICATIONS",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "dangerous",
+      "sensitivity": 0.2,
+      "min_api": 33,
+      "plain_text": "Lets the app show you notifications."
+    },
+    {
+      "permission": "android.permission.USE_BIOMETRIC",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "min_api": 28,
+      "plain_text": "Lets the app ask you to confirm with your fingerprint or face."
+    },
+    {
+      "permission": "android.permission.USE_FINGERPRINT",
+      "category": "accounts_calendar_sensors_nearby",
+      "protection": "normal",
+      "sensitivity": 0.2,
+      "max_api": 27,
+      "plain_text": "Lets the app ask you to confirm with your fingerprint on older versions of Android."
+    }
+  ]
+}

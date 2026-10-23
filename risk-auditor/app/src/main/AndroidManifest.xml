@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+      PACKAGE VISIBILITY
+      Without this, Android 11+ shows this app almost nothing, and the whole
+      scan returns a handful of packages. PS-01 explicitly permits declaring it
+      for the hackathon; Play Store policy restricts it for published apps, and
+      a real submission would need a declared exception.
+    -->
+    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"
+        tools:ignore="QueryAllPackagesPermission" />
+
+    <!-- Lets the uninstall action reach the system uninstall confirmation. -->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+
+    <!-- Runtime permission from API 33. Alerts are silently dropped without it. -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Restart monitoring after a reboot. -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- Keeps the package-added receiver registered while monitoring is on. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+
+    <!--
+      INTERNET is used ONLY by :hash-intel, and only after the user explicitly
+      opts in to fingerprint lookups. Every other feature works in airplane mode.
+      There is no analytics, crash-reporting or advertising SDK in this build.
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".RiskAuditorApplication"
+        android:allowBackup="false"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="false"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:label="App Risk Auditor"
+        android:supportsRtl="true"
+        android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
+
+        <!--
+          Headless debug entry point. No layout: it runs a scan, writes the JSON
+          dump to the app's files dir and to logcat, then finishes.
+          Exported so it can be driven from adb during development.
+        -->
+        <activity
+            android:name=".DebugDumpActivity"
+            android:exported="true"
+            android:label="Run scan (debug)"
+            android:noHistory="true"
+            android:excludeFromRecents="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.reports"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+    </application>
+</manifest>

@@ -1,0 +1,14 @@
+# Offline threat-intelligence blocklist.
+#
+# SHA-256 of APKs known to this project to be malicious.
+#
+# THIS FILE CONTAINS NO REAL MALWARE HASHES. PS-01 forbids using or
+# distributing live malware samples. The only entries that belong here are
+# hashes of this project's own inert fixture APKs (see :fixture-apps), which
+# exist so the MALICIOUS code path can be demonstrated end to end with the
+# network switched off.
+#
+# Populate after building the fixtures:
+#   sha256sum fixture-apps/build/outputs/apk/*/debug/*.apk
+#
+# One lowercase hex hash per line.

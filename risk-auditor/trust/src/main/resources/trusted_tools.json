@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "note": "Allowlist of apps that legitimately hold device admin, accessibility or usage access. DELIBERATELY SHORT AND UNPINNED. Every entry below ships with an EMPTY cert_sha256 list, which means it can only ever be trusted when the app also arrived from Google Play or an OEM store (see TrustRegistry.evaluate). Shipping guessed certificate hashes would be worse than shipping none: a wrong pin silently downgrades a real tool, and an invented pin is a fabricated security claim. Before a production release, populate cert_sha256 for each entry from a device you control using: apksigner verify --print-certs <apk> | grep SHA-256. A package-name match on its own NEVER confers trust.",
+  "tools": [
+    {
+      "package_name": "com.google.android.apps.work.clouddpc",
+      "display_name": "Android Device Policy",
+      "kind": "MDM",
+      "cert_sha256": []
+    },
+    {
+      "package_name": "com.google.android.apps.adm",
+      "display_name": "Find My Device",
+      "kind": "SECURITY",
+      "cert_sha256": []
+    },
+    {
+      "package_name": "com.google.android.apps.accessibility.voiceaccess",
+      "display_name": "Voice Access",
+      "kind": "ACCESSIBILITY_TOOL",
+      "cert_sha256": []
+    },
+    {
+      "package_name": "com.google.android.marvin.talkback",
+      "display_name": "TalkBack",
+      "kind": "ACCESSIBILITY_TOOL",
+      "cert_sha256": []
+    },
+    {
+      "package_name": "com.google.android.apps.kids.familylink",
+      "display_name": "Family Link",
+      "kind": "PARENTAL_CONTROL",
+      "cert_sha256": []
+    }
+  ]
+}

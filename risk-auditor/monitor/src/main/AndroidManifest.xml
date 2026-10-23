@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        BootReceiver is manifest-declared because ACTION_BOOT_COMPLETED and
+        ACTION_MY_PACKAGE_REPLACED ARE still delivered to manifest receivers.
+
+        PackageEventReceiver is deliberately NOT declared here: package-added
+        broadcasts are unreliable for manifest receivers from Android 8 onward,
+        so it is registered at runtime by MonitorService instead, with
+        PeriodicSweepWorker as the safety net. See docs/LIMITATIONS.md L-08.
+    -->
+    <application>
+
+        <service
+            android:name=".MonitorService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Watches for newly installed apps so the user can be warned about risky ones immediately. No data leaves the device." />
+        </service>
+
+        <receiver
+            android:name=".BootReceiver"
+            android:exported="false"
+            android:enabled="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

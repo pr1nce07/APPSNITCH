@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "app": {
+    "package_name": "com.example.torch",
+    "label": "Super Torch",
+    "version_name": "1.4.2",
+    "version_code": 14002,
+    "first_install_time": 1700000000000,
+    "last_update_time": 1700500000000,
+    "target_sdk": 33,
+    "min_sdk": 21,
+    "installer": {
+      "kind": "sideloaded",
+      "installing_package": "com.android.packageinstaller",
+      "initiating_package": null,
+      "originating_package": null
+    },
+    "is_system": false,
+    "is_updated_system": false,
+    "is_enabled": true,
+    "has_launcher_icon": true,
+    "signing_cert_sha256": [
+      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    ],
+    "apk_paths": [
+      "/data/app/com.example.torch/base.apk"
+    ],
+    "app_category": -1,
+    "uid": 10234
+  },
+  "permissions": [
+    {
+      "name": "android.permission.READ_SMS",
+      "declared": true,
+      "granted": true,
+      "protection": "dangerous",
+      "category": "sms",
+      "grantable": true
+    },
+    {
+      "name": "android.permission.INTERNET",
+      "declared": true,
+      "granted": true,
+      "protection": "normal",
+      "category": "network",
+      "grantable": true
+    },
+    {
+      "name": "com.example.custom.PERMISSION",
+      "declared": true,
+      "granted": false,
+      "protection": "unknown",
+      "category": "uncategorized",
+      "grantable": true
+    }
+  ],
+  "special_access": {
+    "entries": [
+      {
+        "kind": "overlay",
+        "state": "declared_only",
+        "evidence": "manifest:SYSTEM_ALERT_WINDOW",
+        "component": null
+      }
+    ]
+  },
+  "manifest": {
+    "exported_components": [],
+    "cleartext_traffic_allowed": true,
+    "debuggable": true,
+    "allow_backup": null,
+    "test_only": false,
+    "analysis_error": null
+  },
+  "apk_sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "hash_verdict": {
+    "type": "skipped_no_consent"
+  },
+  "ml": {
+    "probability": 0.81,
+    "label": "flagged",
+    "top_contributors": [
+      {
+        "feature": "android.permission.READ_SMS",
+        "weight": 1.4
+      }
+    ],
+    "model_version": "test-1",
+    "threshold": 0.5
+  },
+  "scanned_at": 1700600000000
+}
