@@ -1,0 +1,1070 @@
+{
+  "schemaVersion": 1,
+  "scannedAt": "2026-10-16T09:00:00Z",
+  "device": {
+    "model": "Sample device",
+    "androidVersion": "14"
+  },
+  "apps": [
+    {
+      "id": "torch",
+      "name": "Torch Lite",
+      "packageName": "com.brightapps.torchlite",
+      "versionName": "2.3.1",
+      "installedAt": "2026-08-12",
+      "installSource": "sideloaded",
+      "isSystem": false,
+      "targetsOldAndroid": true,
+      "oldAndroidLabel": "Built for Android 5 (2014)",
+      "iconColor": "#2E5E8C",
+      "iconLetter": "T",
+      "score": 94,
+      "reasons": [
+        {
+          "kind": "context",
+          "title": "A flashlight shouldn't need your texts",
+          "detail": "Simple tools rarely need message access. That mismatch is a common sign of a rogue app.",
+          "points": 20
+        },
+        {
+          "kind": "combo",
+          "title": "Could pass your codes on to someone else",
+          "detail": "Reading texts, using the internet and starting by itself, together, is how bank codes get stolen.",
+          "points": 20
+        },
+        {
+          "kind": "access",
+          "title": "Can read your text messages",
+          "detail": "It can see every message you get, including one-time codes.",
+          "points": 15,
+          "category": "texts"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed outside the Play Store",
+          "detail": "No store checked this app before it reached your phone.",
+          "points": 10
+        },
+        {
+          "kind": "access",
+          "title": "Can read your contacts",
+          "detail": "It can see the names and numbers of everyone you know.",
+          "points": 10,
+          "category": "contacts"
+        },
+        {
+          "kind": "trust",
+          "title": "Built for a much older Android",
+          "detail": "It was made before apps had to ask permission, so it gets everything at install.",
+          "points": 10
+        },
+        {
+          "kind": "access",
+          "title": "Starts by itself",
+          "detail": "It launches when the phone turns on, so it is always ready to run.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Asked for the camera, not allowed yet",
+          "detail": "It can't use the camera now, but it could ask later. Counted at a lower weight.",
+          "points": 3,
+          "category": "camera",
+          "latent": true
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Low risk alone, but it can send what it reads somewhere else.",
+          "points": 2,
+          "category": "network"
+        }
+      ],
+      "access": {
+        "texts": [
+          {
+            "label": "Read your texts",
+            "permission": "READ_SMS",
+            "granted": true,
+            "protection": "dangerous"
+          },
+          {
+            "label": "Receive new texts",
+            "permission": "RECEIVE_SMS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "contacts": [
+          {
+            "label": "Read your contacts",
+            "permission": "READ_CONTACTS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "camera": [
+          {
+            "label": "Use the camera",
+            "permission": "CAMERA",
+            "granted": false,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Start when the phone turns on",
+            "permission": "RECEIVE_BOOT_COMPLETED",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": [
+        {
+          "text": "Uninstall it. A flashlight has no reason to read your texts.",
+          "action": "uninstall"
+        },
+        {
+          "text": "If you keep it, remove its text message and contacts permissions.",
+          "action": "settings"
+        }
+      ]
+    },
+    {
+      "id": "quickpay",
+      "name": "QuickPay Wallet",
+      "packageName": "com.quickpay.wallet",
+      "versionName": "5.1.0",
+      "installedAt": "2026-09-03",
+      "installSource": "sideloaded",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#6B4C9A",
+      "iconLetter": "Q",
+      "score": 68,
+      "reasons": [
+        {
+          "kind": "combo",
+          "title": "Could fake a login on top of your real apps",
+          "detail": "Reading the screen and drawing over other apps together is the classic way to copy a banking login.",
+          "points": 25
+        },
+        {
+          "kind": "access",
+          "title": "Can read everything on your screen",
+          "detail": "It uses an accessibility service, so it can see the text of any app you open, including banking apps, and tap buttons for you.",
+          "points": 25,
+          "category": "special"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed outside the Play Store",
+          "detail": "No store checked this app before it reached your phone.",
+          "points": 10
+        },
+        {
+          "kind": "access",
+          "title": "Can draw over other apps",
+          "detail": "It can place its own windows on top of whatever you are using.",
+          "points": 8,
+          "category": "special"
+        }
+      ],
+      "access": {
+        "special": [
+          {
+            "label": "Read the screen and tap for you",
+            "permission": "BIND_ACCESSIBILITY_SERVICE",
+            "granted": true,
+            "protection": "special",
+            "screenReader": true
+          },
+          {
+            "label": "Draw over other apps",
+            "permission": "SYSTEM_ALERT_WINDOW",
+            "granted": true,
+            "protection": "special"
+          }
+        ]
+      },
+      "fixes": [
+        {
+          "text": "Turn off its screen-reading (accessibility) access.",
+          "action": "settings"
+        },
+        {
+          "text": "Turn off \"draw over other apps\" for it.",
+          "action": "settings"
+        },
+        {
+          "text": "Uninstall it. If you need it, reinstall from the Play Store.",
+          "action": "uninstall"
+        }
+      ]
+    },
+    {
+      "id": "pdfscan",
+      "name": "PDF Scanner Plus",
+      "packageName": "com.docsuite.pdfscan",
+      "versionName": "8.0.4",
+      "installedAt": "2026-06-21",
+      "installSource": "play_store",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#8A5A2B",
+      "iconLetter": "P",
+      "score": 56,
+      "reasons": [
+        {
+          "kind": "context",
+          "title": "A scanner asks for more than it needs",
+          "detail": "Document scanners rarely need your contacts or every file on your phone.",
+          "points": 20
+        },
+        {
+          "kind": "access",
+          "title": "Can reach all files on your phone",
+          "detail": "It can open, read and change files from every app, not just the ones you scan.",
+          "points": 12,
+          "category": "files"
+        },
+        {
+          "kind": "access",
+          "title": "Can read your contacts",
+          "detail": "It can see the names and numbers of everyone you know.",
+          "points": 10,
+          "category": "contacts"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the camera",
+          "detail": "Expected for a scanner, but it can take photos any time it is open.",
+          "points": 10,
+          "category": "camera"
+        },
+        {
+          "kind": "access",
+          "title": "Can see your approximate location",
+          "detail": "It can tell roughly which area you are in.",
+          "points": 8,
+          "category": "location"
+        },
+        {
+          "kind": "access",
+          "title": "Asked to read texts, not allowed yet",
+          "detail": "It cannot read your messages now. Counted at a lower weight.",
+          "points": 4,
+          "category": "texts",
+          "latent": true
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Low risk alone, but it can send what it reads somewhere else.",
+          "points": 2,
+          "category": "network"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed from the Play Store",
+          "detail": "A store reviewed this app, which lowers the risk a little.",
+          "points": -10
+        }
+      ],
+      "access": {
+        "files": [
+          {
+            "label": "Manage all files",
+            "permission": "MANAGE_EXTERNAL_STORAGE",
+            "granted": true,
+            "protection": "special"
+          }
+        ],
+        "contacts": [
+          {
+            "label": "Read your contacts",
+            "permission": "READ_CONTACTS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "camera": [
+          {
+            "label": "Use the camera",
+            "permission": "CAMERA",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "location": [
+          {
+            "label": "Approximate location",
+            "permission": "ACCESS_COARSE_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "texts": [
+          {
+            "label": "Read your texts",
+            "permission": "READ_SMS",
+            "granted": false,
+            "protection": "dangerous"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": [
+        {
+          "text": "Remove its contacts and all-files access. Scanning only needs the camera.",
+          "action": "settings"
+        },
+        {
+          "text": "Check who made it in the Play Store listing before you keep it.",
+          "action": "info"
+        }
+      ]
+    },
+    {
+      "id": "chatwave",
+      "name": "ChatWave",
+      "packageName": "com.chatwave.app",
+      "versionName": "12.4.2",
+      "installedAt": "2026-02-02",
+      "installSource": "play_store",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#2D7D7B",
+      "iconLetter": "C",
+      "score": 37,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can read your text messages",
+          "detail": "Normal for a messaging app, but it means it can see your one-time codes.",
+          "points": 15,
+          "category": "texts"
+        },
+        {
+          "kind": "access",
+          "title": "Can read your contacts",
+          "detail": "Normal for messaging, so friends can be found.",
+          "points": 10,
+          "category": "contacts"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the camera and microphone",
+          "detail": "Needed for calls and photos, and it can use them whenever the app is open.",
+          "points": 10,
+          "category": "camera"
+        },
+        {
+          "kind": "access",
+          "title": "Can read your photos and files",
+          "detail": "Needed to send pictures, but it can see all your media.",
+          "points": 6,
+          "category": "files"
+        },
+        {
+          "kind": "access",
+          "title": "Keeps running in the background",
+          "detail": "It stays active to deliver messages.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Needed to send and receive messages.",
+          "points": 2,
+          "category": "network"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed from the Play Store",
+          "detail": "A store reviewed this app, which lowers the risk a little.",
+          "points": -10
+        }
+      ],
+      "access": {
+        "texts": [
+          {
+            "label": "Read your texts",
+            "permission": "READ_SMS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "contacts": [
+          {
+            "label": "Read your contacts",
+            "permission": "READ_CONTACTS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "camera": [
+          {
+            "label": "Use the camera",
+            "permission": "CAMERA",
+            "granted": true,
+            "protection": "dangerous"
+          },
+          {
+            "label": "Record audio",
+            "permission": "RECORD_AUDIO",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "files": [
+          {
+            "label": "Read photos and videos",
+            "permission": "READ_MEDIA_IMAGES",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": [
+        {
+          "text": "Keep texts and contacts if you message with it. Remove any permission you don’t use.",
+          "action": "settings"
+        }
+      ]
+    },
+    {
+      "id": "wallhub",
+      "name": "Wallpaper Hub",
+      "packageName": "com.pixelart.wallhub",
+      "versionName": "3.7.9",
+      "installedAt": "2026-07-30",
+      "installSource": "sideloaded",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#6A6F2A",
+      "iconLetter": "W",
+      "score": 35,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can track your location in the background",
+          "detail": "It can see where you are even when the app is closed. A wallpaper app has little reason to.",
+          "points": 13,
+          "category": "location"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed outside the Play Store",
+          "detail": "No store checked this app before it reached your phone.",
+          "points": 10
+        },
+        {
+          "kind": "access",
+          "title": "Can read your photos and files",
+          "detail": "It can see the pictures stored on your phone.",
+          "points": 6,
+          "category": "files"
+        },
+        {
+          "kind": "access",
+          "title": "Keeps running in the background",
+          "detail": "It stays active even when you are not using it.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Low risk alone, but it can send what it reads somewhere else.",
+          "points": 2,
+          "category": "network"
+        }
+      ],
+      "access": {
+        "location": [
+          {
+            "label": "Precise location",
+            "permission": "ACCESS_FINE_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          },
+          {
+            "label": "Location in the background",
+            "permission": "ACCESS_BACKGROUND_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "files": [
+          {
+            "label": "Read photos and videos",
+            "permission": "READ_MEDIA_IMAGES",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": [
+        {
+          "text": "Turn location off, or set it to \"only while using the app\".",
+          "action": "settings"
+        },
+        {
+          "text": "Reinstall it from the Play Store so it is checked.",
+          "action": "uninstall"
+        }
+      ]
+    },
+    {
+      "id": "ridenow",
+      "name": "RideNow",
+      "packageName": "com.ridenow.app",
+      "versionName": "9.2.0",
+      "installedAt": "2026-03-14",
+      "installSource": "play_store",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#B35A7A",
+      "iconLetter": "R",
+      "score": 25,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can track your location in the background",
+          "detail": "Needed to find your ride, but it can also see where you are while the app is closed.",
+          "points": 13,
+          "category": "location"
+        },
+        {
+          "kind": "access",
+          "title": "Can read your contacts",
+          "detail": "Used to share trips, and it can see everyone you know.",
+          "points": 10,
+          "category": "contacts"
+        },
+        {
+          "kind": "access",
+          "title": "Can see your phone number and device ID",
+          "detail": "It can identify your phone and your number.",
+          "points": 6,
+          "category": "phone"
+        },
+        {
+          "kind": "access",
+          "title": "Keeps running in the background",
+          "detail": "It stays active to track a trip.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Needed to book rides.",
+          "points": 2,
+          "category": "network"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed from the Play Store",
+          "detail": "A store reviewed this app, which lowers the risk a little.",
+          "points": -10
+        }
+      ],
+      "access": {
+        "location": [
+          {
+            "label": "Precise location",
+            "permission": "ACCESS_FINE_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          },
+          {
+            "label": "Location in the background",
+            "permission": "ACCESS_BACKGROUND_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "contacts": [
+          {
+            "label": "Read your contacts",
+            "permission": "READ_CONTACTS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "phone": [
+          {
+            "label": "Phone number and device ID",
+            "permission": "READ_PHONE_STATE",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": [
+        {
+          "text": "Set location to \"only while using the app\".",
+          "action": "settings"
+        }
+      ]
+    },
+    {
+      "id": "steps",
+      "name": "Daily Steps",
+      "packageName": "com.fitlog.dailysteps",
+      "versionName": "4.0.1",
+      "installedAt": "2026-05-08",
+      "installSource": "play_store",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#3F6E4F",
+      "iconLetter": "D",
+      "score": 4,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can see your approximate location",
+          "detail": "It can tell roughly which area you are in.",
+          "points": 8,
+          "category": "location"
+        },
+        {
+          "kind": "access",
+          "title": "Keeps running in the background",
+          "detail": "It counts steps while the screen is off.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Low risk alone.",
+          "points": 2,
+          "category": "network"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed from the Play Store",
+          "detail": "A store reviewed this app, which lowers the risk a little.",
+          "points": -10
+        }
+      ],
+      "access": {
+        "location": [
+          {
+            "label": "Approximate location",
+            "permission": "ACCESS_COARSE_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": []
+    },
+    {
+      "id": "notes",
+      "name": "Pixel Notes",
+      "packageName": "com.pixelnotes.app",
+      "versionName": "1.9.3",
+      "installedAt": "2026-01-17",
+      "installSource": "play_store",
+      "isSystem": false,
+      "targetsOldAndroid": false,
+      "iconColor": "#8C3B5E",
+      "iconLetter": "N",
+      "score": 2,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can read your photos and files",
+          "detail": "Needed to attach pictures to notes.",
+          "points": 6,
+          "category": "files"
+        },
+        {
+          "kind": "access",
+          "title": "Syncs in the background",
+          "detail": "It runs briefly to save your notes.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Low risk alone.",
+          "points": 2,
+          "category": "network"
+        },
+        {
+          "kind": "trust",
+          "title": "Installed from the Play Store",
+          "detail": "A store reviewed this app, which lowers the risk a little.",
+          "points": -10
+        }
+      ],
+      "access": {
+        "files": [
+          {
+            "label": "Read photos and videos",
+            "permission": "READ_MEDIA_IMAGES",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": []
+    },
+    {
+      "id": "dialer",
+      "name": "System Dialer",
+      "packageName": "com.android.dialer",
+      "versionName": "14",
+      "installedAt": null,
+      "installSource": "system",
+      "isSystem": true,
+      "targetsOldAndroid": false,
+      "iconColor": "#4A5A6A",
+      "iconLetter": "S",
+      "score": 30,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can read your text messages",
+          "detail": "Part of how calls and voicemail work.",
+          "points": 15,
+          "category": "texts"
+        },
+        {
+          "kind": "access",
+          "title": "Can read your contacts and call log",
+          "detail": "Needed to show who is calling.",
+          "points": 10,
+          "category": "contacts"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the microphone",
+          "detail": "Needed for calls.",
+          "points": 10,
+          "category": "camera"
+        },
+        {
+          "kind": "access",
+          "title": "Can see your phone number and device ID",
+          "detail": "Needed to place calls.",
+          "points": 6,
+          "category": "phone"
+        },
+        {
+          "kind": "access",
+          "title": "Keeps running in the background",
+          "detail": "It stays ready for incoming calls.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "trust",
+          "title": "Built into your phone",
+          "detail": "It comes with Android, so it is trusted more.",
+          "points": -15
+        }
+      ],
+      "access": {
+        "texts": [
+          {
+            "label": "Read your texts",
+            "permission": "READ_SMS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "contacts": [
+          {
+            "label": "Read contacts and call log",
+            "permission": "READ_CONTACTS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "camera": [
+          {
+            "label": "Record audio",
+            "permission": "RECORD_AUDIO",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "phone": [
+          {
+            "label": "Phone number and device ID",
+            "permission": "READ_PHONE_STATE",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": []
+    },
+    {
+      "id": "keyboard",
+      "name": "Device Keyboard",
+      "packageName": "com.android.inputmethod",
+      "versionName": "14",
+      "installedAt": null,
+      "installSource": "system",
+      "isSystem": true,
+      "targetsOldAndroid": false,
+      "iconColor": "#4A5A6A",
+      "iconLetter": "K",
+      "score": 7,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can read your contacts",
+          "detail": "Used to suggest names as you type.",
+          "points": 10,
+          "category": "contacts"
+        },
+        {
+          "kind": "access",
+          "title": "Can read your photos and files",
+          "detail": "Used for stickers and images.",
+          "points": 6,
+          "category": "files"
+        },
+        {
+          "kind": "access",
+          "title": "Keeps running in the background",
+          "detail": "It is always ready when you type.",
+          "points": 4,
+          "category": "background"
+        },
+        {
+          "kind": "access",
+          "title": "Can use the internet",
+          "detail": "Used for suggestions.",
+          "points": 2,
+          "category": "network"
+        },
+        {
+          "kind": "trust",
+          "title": "Built into your phone",
+          "detail": "It comes with Android, so it is trusted more.",
+          "points": -15
+        }
+      ],
+      "access": {
+        "contacts": [
+          {
+            "label": "Read your contacts",
+            "permission": "READ_CONTACTS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "files": [
+          {
+            "label": "Read photos and videos",
+            "permission": "READ_MEDIA_IMAGES",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "background": [
+          {
+            "label": "Run in the background",
+            "permission": "FOREGROUND_SERVICE",
+            "granted": true,
+            "protection": "normal"
+          }
+        ],
+        "network": [
+          {
+            "label": "Use the internet",
+            "permission": "INTERNET",
+            "granted": true,
+            "protection": "normal"
+          }
+        ]
+      },
+      "fixes": []
+    },
+    {
+      "id": "carrier",
+      "name": "Carrier Services",
+      "packageName": "com.android.carrierservices",
+      "versionName": "14",
+      "installedAt": null,
+      "installSource": "system",
+      "isSystem": true,
+      "targetsOldAndroid": false,
+      "iconColor": "#4A5A6A",
+      "iconLetter": "V",
+      "score": 14,
+      "reasons": [
+        {
+          "kind": "access",
+          "title": "Can read your text messages",
+          "detail": "Used for network messages from your carrier.",
+          "points": 15,
+          "category": "texts"
+        },
+        {
+          "kind": "access",
+          "title": "Can see your approximate location",
+          "detail": "Used to pick the right network settings.",
+          "points": 8,
+          "category": "location"
+        },
+        {
+          "kind": "access",
+          "title": "Can see your phone number and device ID",
+          "detail": "Used to set up your mobile plan.",
+          "points": 6,
+          "category": "phone"
+        },
+        {
+          "kind": "trust",
+          "title": "Built into your phone",
+          "detail": "It comes with Android, so it is trusted more.",
+          "points": -15
+        }
+      ],
+      "access": {
+        "texts": [
+          {
+            "label": "Read your texts",
+            "permission": "READ_SMS",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "location": [
+          {
+            "label": "Approximate location",
+            "permission": "ACCESS_COARSE_LOCATION",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ],
+        "phone": [
+          {
+            "label": "Phone number and device ID",
+            "permission": "READ_PHONE_STATE",
+            "granted": true,
+            "protection": "dangerous"
+          }
+        ]
+      },
+      "fixes": []
+    }
+  ]
+}

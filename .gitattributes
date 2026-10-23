@@ -1,0 +1,12 @@
+* text=auto
+
+# Shell scripts and the Gradle wrapper must keep LF or they break on Linux/macOS
+*.sh       text eol=lf
+gradlew    text eol=lf
+*.bat      text eol=crlf
+
+*.png      binary
+*.jar      binary
+*.pdf      binary
+*.pptx     binary
+*.woff2    binary
