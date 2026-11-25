@@ -41,7 +41,7 @@ If someone can open the app and answer all three in under 60 seconds without any
 
 Data flows one way through five layers. Layers 1–4 are pure Kotlin with no Android UI imports, so the scoring engine can be unit-tested with fake data.
 
-```
+``` 
 ┌──────────────────────────────────────────────────┐
 │ 5. UI          Scan · Risk score · Prevention    │
 ├──────────────────────────────────────────────────┤
